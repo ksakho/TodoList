@@ -1,0 +1,78 @@
+#form {
+    margin-bottom: 20px;
+}
+#formValidate{
+    margin-top: 10px;
+}
+.form-group {
+    text-align: center;
+    padding-bottom: 25px;
+}
+#a{
+    text-decoration: none;
+    margin-bottom: 10px !important;
+    box-shadow: 1px 1px 1px gray;
+}
+a:hover{
+    text-decoration: none;
+}
+ul{
+    padding-left: 0 !important;
+}
+li{
+    margin-bottom: 10px;
+}
+#listOfTasks li{
+    box-shadow: 1px 1px 1px gray;
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+
+/**Animations**/
+/*Todos & Tasks*/
+
+#listOfTodos li.ng-enter, #listOfTodos li.ng-leave, 
+#listOfTasks li.ng-enter, #listOfTasks li.ng-leave
+{ 
+   -webkit-transition:0.1s all linear;
+    transition:0.1s all linear;
+} 
+ 
+#listOfTodos li.ng-enter, 
+#listOfTasks li.ng-enter{
+    opacity: 0;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+}
+
+#listOfTodos li.ng-enter.ng-enter-active, 
+#listOfTasks li.ng-enter.ng-enter-active {
+    opacity:1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+#listOfTodos li.ng-leave,
+#listOfTasks li.ng-leave { 
+    opacity:1;
+}
+
+#listOfTodos li.ng-leave.ng-leave-active{
+    transform: translateX(-90px);
+    opacity:0;
+}
+#listOfTasks li.ng-leave.ng-leave-active {
+    transform: translateX(90px);
+    opacity:0;
+}
+
+#listOfTodos li.ng-enter-stagger,
+#listOfTasks li.ng-enter-stagger{
+    transition-delay: 0.5s;
+    -webkit-transition-delay: 0.5s;
+    transition-duration: 0;
+    -webkit-transition-duration: 0;
+}

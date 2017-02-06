@@ -1,0 +1,18 @@
+<div ng-click="showTasks()" class="list-group-item list-group-item-action flex-column align-items-start" id="a">
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">{{todo.label}}</h5>
+    <h4><span class="badge badge-default" ng-show="{{todo.todos.length !== undefined}}">{{todo.todos.length}} Tasks</span></h4>
+  </div>
+  <div class="row">
+      <div class="col-md-6"><button id="btn "class="btn btn-danger" ng-click="delete()">Delete</button></div>
+      <div class="col-md-6"><button id="btn" class="btn btn-warning" ng-click="editCollaps();$event.stopPropagation();">Edit</button></div>
+  </div>
+  <div ng-hide="isEditClicked" id="formValidate" class="input-group">
+      <input class="form-control" type="text" placeholder="New title" ng-model="editedTdodo">
+      <span class="input-group-btn">
+          <button class="btn btn-block btn-warning" type="button" ng-click="edit()">Validate</button>
+      </span>
+  </div>
+</div>
+
+

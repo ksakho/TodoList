@@ -1,0 +1,56 @@
+<div ng-if ="!task.done">
+    <div ng-switch on="task.priority">
+        <div ng-switch-when="2">
+            <li class="row list-group-item list-group-item-warning">
+                <div class="col-md-6">{{task.text}}</div>
+                <div class="col-md-2"><button class="btn btn-success" ng-click="done()">done</button></div>
+                <div class="col-md-2"><button class="btn btn-danger" ng-click="delete()">delete</button></div>
+                <div class="col-md-2"><button class="btn btn-warning" ng-click="editCollaps()">edit</button></div>
+                <div ng-hide="isEditClicked" id="formValidate" class="input-group">
+                    <input class="form-control" type="text" placeholder="New title" ng-model="editedTask.check">
+                    <span class="input-group-btn">
+                        <button class="btn btn-block btn-warning" type="button" ng-click="edit()">Validate</button>
+                    </span>
+                </div>
+            </li>
+        </div>
+        <div ng-switch-when="1">
+            <li class="row list-group-item list-group-item-danger">
+                <div class="col-md-6">{{task.text}}</div>
+                <div class="col-md-2"><button class="btn btn-success" ng-click="done()">done</button></div>
+                <div class="col-md-2"><button class="btn btn-danger" ng-click="delete()">delete</button></div>
+                <div class="col-md-2"><button class="btn btn-warning" ng-click="editCollaps()">edit</button></div>
+                <div ng-hide="isEditClicked" id="formValidate" class="input-group">
+                    <input class="form-control" type="text" placeholder="New title" ng-model="editedTask.check">
+                    <span class="input-group-btn">
+                        <button class="btn btn-block btn-warning" type="button" ng-click="edit()">Validate</button>
+                    </span>
+                </div>
+            </li>
+        </div>
+        <div ng-switch-default>
+            <li class="row list-group-item list-group-item-info">
+                <div class="col-md-6">{{task.text}}</div>
+                <div class="col-md-2"><button class="btn btn-success" ng-click="done()">done</button></div>
+                <div class="col-md-2"><button class="btn btn-danger" ng-click="delete()">delete</button></div>
+                <div class="col-md-2"><button class="btn btn-warning" ng-click="editCollaps()">edit</button></div>
+                <div ng-hide="isEditClicked" id="formValidate" class="input-group">
+                    <input class="form-control" type="text" placeholder="New title" ng-model="editedTask.check">
+                    <span class="input-group-btn">
+                        <button class="btn btn-block btn-warning" type="button" ng-click="edit()">Validate</button>
+                    </span>
+                </div>
+            </li>
+        </div>
+    </div>
+</div>
+
+<div ng-if ="task.done">
+    <li class="row list-group-item list-group-item-success">
+        <div class="col-md-9">{{task.text}}</div>
+        <div class="col-md-2"><button class="btn btn-info" ng-click="undone()">undone</button></div>
+    </li>
+</div>
+
+
+

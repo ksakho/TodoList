@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Todos</title>
+        
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/jirou.css" rel="stylesheet">
+
+    <script src="lib/js/jquery-3.1.1.min.js"></script>
+    <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/angular-animate.min.js"></script>
+    <script src="app/app.js"></script>
+
+    <script src="app/models/Todo.js"></script>
+    <script src="app/models/ListTodo.js"></script>
+    <script src="app/models/Task.js"></script>
+    <script src="app/models/ListTask.js"></script>
+
+    <script src="app/controllers/todoController.js"></script>
+    <script src="app/controllers/taskController.js"></script>
+
+    <script src="app/directives/todoDirective.js"></script>
+    <script src="app/directives/taskDirective.js"></script>
+
+</head>
+<body ng-app="todos" class="container">
+    <div class="form-group">
+        <h1>To-Do <small>List</small></h1>
+    </div>
+    <div class="row well">    
+        <div ng-controller="todoController" class="col-md-6">
+            <div class="row">
+                <div id="form" class="input-group col-md-6">
+                    <input class="form-control" type="text" placeholder="New Todo" ng-model="newTodo.label">
+                    <span class="input-group-btn">
+                        <button class="btn btn-block btn-info" type="button" ng-click="add()">Add Todo</button>
+                    </span>
+                </div>
+                <div id="form" class="input-group col-md-6">
+                    <input class="form-control" type="text" placeholder="find Todo" ng-model="findTodo.label">
+                </div>
+            </div>
+            <h2 ng-hide="listTodo.length">No ToDo</h2>
+            <ul id="listOfTodos">
+                <li ng-repeat="todo in listTodo | filter:findTodo" class="list-group" >
+                    <todo>
+                </li>    
+            </ul>
+        </div> 
+        <div ng-controller="taskController" class="col-md-6">
+            <div class="row">
+                <div ng-show="isClicked.todo"  id="form" class="input-group col-md-6">
+                    <input class="form-control" type="text" placeholder="New Task" ng-model="newTask">
+                    <span class="input-group-btn">
+                        <button class="btn btn-block btn-info" type="button" ng-click="addTask()">Add Task</button>
+                    </span>
+                </div>
+                <div ng-show="isClicked.todo" id="form" class="input-group col-md-6">
+                    <input class="form-control" type="text" placeholder="find Task" ng-model="findTask.text">
+                </div>
+            </div>
+            <ul id="listOfTasks" class="list-unstyled">
+                <li ng-repeat="task in list_tasks | filter:findTask">
+                    <task>
+                </li>
+            </ul>    
+        </div>
+    </div>
+</body>
+
+</html>
